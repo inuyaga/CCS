@@ -1,0 +1,22 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 25/05/2018, 11:06:44 AM
+    Author     : soporte
+*/
+
+.button:hover{
+-fx-background-color: #00B0FF;
+}
+
+.button{
+-fx-background-color:  #0078d7;
+-fx-text-fill: white;
+}
+
+.degradado{
+    -fx-background-color: linear-gradient(#0D47A1, #1976D2);
+}

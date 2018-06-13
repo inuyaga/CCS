@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #FFFFFF;" stylesheets="@stilos.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.FXMLDocumentController">
+    <children>
+      <JFXTextField fx:id="TXTARCHIVO" editable="false" labelFloat="true" layoutX="195.0" layoutY="93.0" prefHeight="26.0" prefWidth="395.0" promptText="Archivo:" AnchorPane.leftAnchor="195.0" />
+      <TableView fx:id="TABLAINFO" layoutX="195.0" layoutY="130.0" prefHeight="385.0" prefWidth="598.0" AnchorPane.bottomAnchor="85.0" AnchorPane.leftAnchor="195.0" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="130.0">
+        <columns>
+          <TableColumn fx:id="COLCLIENTE" prefWidth="100.0" text="Nº Cliente" />
+          <TableColumn fx:id="COLNOMBRECLIENTE" prefWidth="350.0" text="Nombre Cliente" />
+            <TableColumn fx:id="COLVENTA" prefWidth="100.0" text="Venta" />
+            <TableColumn fx:id="COLFECHAVENTA" prefWidth="250.0" text="F. Venta" />
+            <TableColumn fx:id="COLFAC" prefWidth="100.0" text="Factura" />
+            <TableColumn fx:id="COLFECHAFAC" prefWidth="250.0" text="Fecha Factura" />
+            <TableColumn fx:id="COLTOTAL" prefWidth="90.0" text="Total" />
+            <TableColumn fx:id="COLVENDEDOR" prefWidth="100.0" text="Vendedor" />
+            <TableColumn fx:id="COLFOLIODESBLOQ" prefWidth="150.0" text="Folio Desbloq" />
+            <TableColumn fx:id="COLHORAIMPRESION" prefWidth="200.0" text="Hora Impresión" />
+            <TableColumn fx:id="COLPARTIDAS" prefWidth="75.0" text="Partidas" />
+            <TableColumn fx:id="COLESTATUS" prefWidth="75.0" text="Estatus" />
+            <TableColumn fx:id="COLESTADOPED" prefWidth="170.0" text="Estado Ped" />
+            <TableColumn fx:id="COLCIUDAD" prefWidth="250.0" text="Ciudad" />
+            <TableColumn fx:id="COLRUTA" prefWidth="75.0" text="Ruta" />
+            <TableColumn fx:id="COLBLOQUEDADO" prefWidth="100.0" text="Bloqueado" />
+        </columns>
+         <contextMenu>
+            <ContextMenu>
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#AccionEliminarFila" text="Eliminar" />
+              </items>
+            </ContextMenu>
+         </contextMenu>
+      </TableView>
+      <JFXButton fx:id="BTNCAMBIOS" layoutX="671.0" layoutY="557.0" onAction="#GUARDARINFORMACION" style="-fx-background-color: #e71d36; -fx-background-radius: 30;" text="Aplicar" textFill="WHITE" AnchorPane.bottomAnchor="17.0" AnchorPane.rightAnchor="5.0">
+         <graphic>
+            <FontAwesomeIconView fill="WHITE" glyphName="CHECK_CIRCLE" size="20" />
+         </graphic></JFXButton>
+      <Label fx:id="labelMensaje" layoutX="284.0" layoutY="522.0" prefHeight="59.0" prefWidth="423.0" AnchorPane.bottomAnchor="19.0">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <VBox layoutY="-1.0" prefHeight="600.0" prefWidth="187.0" style="-fx-background-color: #0078d7;" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="-1.0">
+         <children>
+            <Pane prefHeight="86.0" prefWidth="100.0" styleClass="degradado">
+               <children>
+                  <Label layoutX="26.0" layoutY="31.0" text="CRP Admin" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="19.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Label text="Importar" textFill="#c9c2c2">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="50.0" />
+               </VBox.margin>
+            </Label>
+            <Button fx:id="BTNBUSQUEDA" alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#AccionSeleccionaArchivo" prefHeight="26.0" prefWidth="150.0" text="Excel">
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="SEARCH" size="20" />
+               </graphic>
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </Button>
+            <Label text="Reortes" textFill="#c9c2c2">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" top="20.0" />
+               </VBox.margin>
+            </Label>
+            <Button alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#AccionReporteCompleto" prefHeight="26.0" prefWidth="150.0" text="Completo">
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="COPY" size="20" />
+               </graphic>
+            </Button>
+            <Button alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#AccionVerDatos" prefHeight="26.0" prefWidth="150.0" text="Vendedor">
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="USER" size="20" />
+               </graphic>
+            </Button>
+            <HBox prefHeight="32.0" prefWidth="187.0">
+               <children>
+                  <Button alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#AccionReporteComentarios" prefHeight="26.0" prefWidth="150.0" text="Comentarios">
+                     <graphic>
+                        <FontAwesomeIconView fill="WHITE" glyphName="WEIXIN" size="20" />
+                     </graphic>
+                  </Button>
+                  <Label fx:id="Label_msn_comentarios" alignment="BOTTOM_CENTER" style="-fx-background-radius: 30;" text="100" textFill="WHITE" visible="false">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets top="8.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <Label text="Solicitud" textFill="#c9c2c2">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </Label>
+            <HBox prefHeight="37.0" prefWidth="187.0">
+               <children>
+                  <Button alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#AccionEliminaVenta" prefHeight="31.0" prefWidth="150.0" text="Eliminar" HBox.hgrow="ALWAYS">
+                     <graphic>
+                        <FontAwesomeIconView fill="WHITE" glyphName="TRASH_ALT" size="20" />
+                     </graphic>
+                  </Button>
+                  <Label fx:id="Label_msn_eliminar" alignment="BOTTOM_CENTER" style="-fx-background-radius: 30;" text="100" textFill="WHITE" visible="false">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets top="8.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="38.0" prefWidth="187.0">
+               <children>
+                  <Button alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#AccionAgregarVenta" prefHeight="31.0" prefWidth="150.0" text="Agregar" HBox.hgrow="ALWAYS">
+                     <graphic>
+                        <FontAwesomeIconView fill="WHITE" glyphName="PLUS" size="20" />
+                     </graphic>
+                  </Button>
+                  <Label fx:id="Label_msn_agragar" alignment="BOTTOM_CENTER" contentDisplay="CENTER" style="-fx-background-radius: 30;" text="100" textFill="WHITE" visible="false">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets top="8.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <AnchorPane layoutX="187.0" prefHeight="80.0" prefWidth="613.0" styleClass="degradado" AnchorPane.leftAnchor="187.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox layoutX="14.0" layoutY="40.0" prefHeight="31.0" prefWidth="408.0" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="1.0">
+               <children>
+                  <FontAwesomeIconView fill="WHITE" glyphName="SEARCH" size="25">
+                     <HBox.margin>
+                        <Insets right="2.0" />
+                     </HBox.margin></FontAwesomeIconView>
+                  <TextField fx:id="txt_Busqueda" prefHeight="26.0" prefWidth="353.0" promptText="Buscar numero cliente o numero venta" />
+               </children>
+            </HBox>
+         </children></AnchorPane>
+      <ProgressIndicator fx:id="ProgresoTarea" layoutX="190.0" layoutY="522.0" prefHeight="70.0" prefWidth="60.0" progress="0.0" AnchorPane.bottomAnchor="8.0" />
+      <HBox layoutX="537.0" layoutY="91.0" prefHeight="26.0" prefWidth="187.0" AnchorPane.rightAnchor="4.0">
+         <children>
+            <Label text="Semana Actual: ">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="LblSemanaActual" text="201852" />
+         </children>
+      </HBox>
+    </children>
+</AnchorPane>

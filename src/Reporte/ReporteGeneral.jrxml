@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="792" pageHeight="612" orientation="Landscape" columnWidth="780" leftMargin="6" rightMargin="6" topMargin="7" bottomMargin="6" uuid="beb7f06f-0ab6-42cd-95e7-b1ad4f677757">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Crosstab Data Text" hAlign="Center"/>
+	<subDataset name="DatosTabla" uuid="671a39e1-8cf2-4326-9fac-787d5276deb8">
+		<parameter name="VENDEDOR" class="java.lang.String"/>
+		<parameter name="SEMANA" class="java.lang.String"/>
+		<parameter name="RUTA" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[SELECT 
+Corte_Rutas.DetCort_ID,
+Corte_Rutas.DetCort_NumeroCliente,
+Corte_Rutas.DetCort_NombreCliente,
+Corte_Rutas.DetCort_Venta,
+Corte_Rutas.DetCort_FechaVenta,
+Corte_Rutas.DetCort_Factura,
+Corte_Rutas.DetCort_FechaHoraFactura,
+Corte_Rutas.DetCort_Total,
+Corte_Rutas.DetCort_ClaveVendedor,
+Corte_Rutas.DetCort_FolioDesbloqueo,
+Corte_Rutas.DetCort_Partidas,
+Corte_Rutas.DetCort_Estatus,
+Corte_Rutas.DetCort_EstadoPedido,
+Corte_Rutas.DetCort_Ciudad,
+Corte_Rutas.DetCort_Ruta,
+Corte_Rutas.DetCort_Bloqueado,
+Corte_Rutas.Det_TipoCorte,
+Corte_Rutas.Det_Semana,
+Det_FechaSubida,
+IF(DetCort_FechaHoraImpresion='1970-01-01 00:00:00','NO IMPRESO',DetCort_FechaHoraImpresion) AS DetCort_FechaHoraImpresion
+FROM
+	Corte_Rutas ]]>
+		</queryString>
+		<field name="DetCort_ID" class="java.lang.Integer">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="DetCort_NumeroCliente" class="java.lang.Integer">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="DetCort_NombreCliente" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="DetCort_Venta" class="java.lang.Integer">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="DetCort_FechaVenta" class="java.sql.Date">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="DetCort_Factura" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="DetCort_FechaHoraFactura" class="java.sql.Timestamp">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="DetCort_Total" class="java.lang.Double">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="DetCort_ClaveVendedor" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="DetCort_FolioDesbloqueo" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="DetCort_Partidas" class="java.lang.Integer">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="DetCort_Estatus" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="DetCort_EstadoPedido" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="DetCort_Ciudad" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="DetCort_Ruta" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="DetCort_Bloqueado" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="Det_TipoCorte" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="Det_Semana" class="java.lang.Integer">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="Det_FechaSubida" class="java.sql.Timestamp">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="DetCort_FechaHoraImpresion" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<variable name="megasuma" class="java.lang.Double" calculation="Sum">
+			<variableExpression><![CDATA[$F{DetCort_Total}]]></variableExpression>
+		</variable>
+	</subDataset>
+	<parameter name="P_VENDEDOR" class="java.lang.String"/>
+	<parameter name="P_RUTA" class="java.lang.String"/>
+	<parameter name="P_SEMANA" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT 1;]]>
+	</queryString>
+	<field name="1" class="java.lang.Long"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<componentElement>
+				<reportElement key="table 1" style="table 1" x="0" y="0" width="780" height="125" uuid="c3d4941f-0c59-47af-877b-536d38503775"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="DatosTabla" uuid="61693913-1616-4c8b-b889-c3a0a865222a">
+						<parametersMapExpression><![CDATA[]]></parametersMapExpression>
+						<datasetParameter name="VENDEDOR">
+							<datasetParameterExpression><![CDATA[$P{P_VENDEDOR}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="SEMANA">
+							<datasetParameterExpression><![CDATA[$P{P_SEMANA}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="RUTA">
+							<datasetParameterExpression><![CDATA[$P{P_RUTA}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:columnGroup width="210" uuid="bde10a42-8ff6-4467-a4ce-eaba0e012fd0">
+						<jr:tableHeader height="30" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="210" height="30" uuid="f49b254f-4920-47d8-907a-e78c7acfb919"/>
+								<textFieldExpression><![CDATA["Actualizado: "+$F{Det_FechaSubida}]]></textFieldExpression>
+							</textField>
+						</jr:tableHeader>
+						<jr:column width="45" uuid="9d780314-0460-42c2-99c6-cc6320f5a394">
+							<jr:columnHeader style="table 1_CH" height="30" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="45" height="30" uuid="87dd4ab7-bbe6-48e2-b5bf-97ad70b01784"/>
+									<text><![CDATA[Cliente]]></text>
+								</staticText>
+							</jr:columnHeader>
+							<jr:detailCell style="table 1_TD" height="30" rowSpan="1">
+								<textField>
+									<reportElement x="0" y="0" width="45" height="20" uuid="b35d24fb-9188-456f-b03b-339870eba93a"/>
+									<textFieldExpression><![CDATA[$F{DetCort_NumeroCliente}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="120" uuid="51b2d132-275a-4f35-a985-e005189895e7">
+							<jr:columnHeader style="table 1_CH" height="30" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="90" height="30" uuid="234e1dfa-4b2f-49f2-891c-90c7254bcf4d"/>
+									<text><![CDATA[Nombre]]></text>
+								</staticText>
+							</jr:columnHeader>
+							<jr:detailCell style="table 1_TD" height="30" rowSpan="1">
+								<textField>
+									<reportElement x="0" y="0" width="120" height="30" uuid="6797808c-075c-4186-ab98-1b0c666ee59d"/>
+									<textFieldExpression><![CDATA[$F{DetCort_NombreCliente}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="45" uuid="8c318b4b-e3d9-4d8d-be83-c923a14d664e">
+							<jr:columnHeader style="table 1_CH" height="30" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="45" height="30" uuid="b9f61a33-1a84-4a42-8bfb-c471fd0aa266"/>
+									<text><![CDATA[Venta]]></text>
+								</staticText>
+							</jr:columnHeader>
+							<jr:detailCell style="table 1_TD" height="30" rowSpan="1">
+								<textField>
+									<reportElement x="0" y="0" width="45" height="20" uuid="c8706aad-5a97-4f2e-978d-f80ab244b484"/>
+									<textFieldExpression><![CDATA[$F{DetCort_Venta}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+					</jr:columnGroup>
+					<jr:columnGroup width="140" uuid="a2ee0347-4324-4f8a-8243-6d1a53d2c172">
+						<jr:tableHeader height="30" rowSpan="1"/>
+						<jr:column width="45" uuid="5086eef3-1196-4cc6-b051-250124d8a58c">
+							<jr:columnHeader style="table 1_CH" height="30" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="45" height="30" uuid="feea48c3-d4f1-4573-8b02-904f8b5b3bc8"/>
+									<text><![CDATA[F.Venta]]></text>
+								</staticText>
+							</jr:columnHeader>
+							<jr:detailCell style="table 1_TD" height="30" rowSpan="1">
+								<textField>
+									<reportElement x="0" y="0" width="45" height="20" uuid="2776016d-7641-4df9-bed8-535f52405f0c"/>
+									<textFieldExpression><![CDATA[$F{DetCort_FechaVenta}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="50" uuid="07c10e33-a5f9-4206-bead-67ad9ed1174b">
+							<jr:columnHeader style="table 1_CH" height="30" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="50" height="30" uuid="6c1241f8-861d-4999-917d-dedf5fd32bdb"/>
+									<text><![CDATA[Suma]]></text>
+								</staticText>
+							</jr:columnHeader>
+							<jr:columnFooter height="30" rowSpan="1">
+								<textField pattern="###0.00">
+									<reportElement x="0" y="0" width="50" height="30" uuid="1959a297-91de-4456-88f3-57fc6ef8089f"/>
+									<textFieldExpression><![CDATA[$V{megasuma}]]></textFieldExpression>
+								</textField>
+							</jr:columnFooter>
+							<jr:detailCell style="table 1_TD" height="30" rowSpan="1">
+								<textField>
+									<reportElement x="0" y="0" width="50" height="20" uuid="51f3dd9e-50c3-477d-97f6-cc6336f0756e"/>
+									<textFieldExpression><![CDATA[$F{DetCort_Total}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="45" uuid="7eb8c0f9-9cf9-49fe-805f-ba9fef852a9d">
+							<jr:columnHeader style="table 1_CH" height="30" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="45" height="30" uuid="d6c7994a-26ce-4d5e-afb8-78bd87dc8c0b"/>
+									<text><![CDATA[Ruta]]></text>
+								</staticText>
+							</jr:columnHeader>
+							<jr:detailCell style="table 1_TD" height="30" rowSpan="1">
+								<textField>
+									<reportElement x="0" y="0" width="45" height="30" uuid="bb9bea57-8a8c-4d84-8b4b-936e8553dd53"/>
+									<textFieldExpression><![CDATA[$F{DetCort_Ruta}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+					</jr:columnGroup>
+					<jr:columnGroup width="160" uuid="312e18ab-a22a-486e-94ae-efe3b7eee14b">
+						<jr:tableHeader height="30" rowSpan="1"/>
+						<jr:column width="45" uuid="241375e9-66ba-42eb-8e9e-2b8653b961ee">
+							<jr:columnHeader style="table 1_CH" height="30" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="45" height="30" uuid="11127917-94f6-4ff8-ae53-aba0f1aef01c"/>
+									<text><![CDATA[Fol Des]]></text>
+								</staticText>
+							</jr:columnHeader>
+							<jr:columnFooter height="30"/>
+							<jr:detailCell style="table 1_TD" height="30" rowSpan="1">
+								<textField>
+									<reportElement x="0" y="0" width="45" height="20" uuid="2f505274-1f5f-40da-855c-3352bae76128"/>
+									<textFieldExpression><![CDATA[$F{DetCort_FolioDesbloqueo}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="90" uuid="0be4be64-d195-4a5a-b048-d72122fe6d47">
+							<jr:columnHeader style="table 1_CH" height="30" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="90" height="30" uuid="ca6e92ff-3550-481c-b8be-81112662822a"/>
+									<text><![CDATA[Fecha de Imp]]></text>
+								</staticText>
+							</jr:columnHeader>
+							<jr:detailCell style="table 1_TD" height="30" rowSpan="1">
+								<textField>
+									<reportElement x="0" y="0" width="90" height="30" uuid="ed209e9b-2945-4c4c-a1f7-3d3b2130f69e"/>
+									<textFieldExpression><![CDATA[$F{DetCort_FechaHoraImpresion}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="25" uuid="b8d0aef9-ffb0-46ea-95a0-617431c5b7f7">
+							<jr:columnHeader style="table 1_CH" height="30" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="25" height="30" uuid="8b938bf4-c3fb-41f8-a3bd-eb0795df529a"/>
+									<text><![CDATA[Estatus]]></text>
+								</staticText>
+							</jr:columnHeader>
+							<jr:detailCell style="table 1_TD" height="30" rowSpan="1">
+								<textField>
+									<reportElement x="0" y="0" width="25" height="20" uuid="4c094b53-4b28-466b-913a-9141a420dd22"/>
+									<textFieldExpression><![CDATA[$F{DetCort_Estatus}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+					</jr:columnGroup>
+					<jr:column width="90" uuid="d79bb93e-2190-4df2-bd58-a79317618a79">
+						<jr:tableHeader height="30" rowSpan="1"/>
+						<jr:columnHeader style="table 1_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="9ce14aea-b977-4497-bc18-eae55226b922"/>
+								<text><![CDATA[Est. Ped]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 1_TD" height="30" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="882124e8-e797-473b-abad-79145f0cea51"/>
+								<textFieldExpression><![CDATA[$F{DetCort_EstadoPedido}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="200c1166-abc2-4232-b906-1bfd126e2eb8">
+						<jr:columnHeader style="table 1_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="84ed52c2-f0e0-4d77-ae44-c173e2c9c23e"/>
+								<text><![CDATA[Ciudad]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 1_TD" height="30" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="30" uuid="9da5e40c-69af-4183-b2a8-fb2f08a113e8"/>
+								<textFieldExpression><![CDATA[$F{DetCort_Ciudad}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="30" uuid="adbdc9ae-0c86-4f92-b4a6-1de89cfb40c6">
+						<jr:columnHeader style="table 1_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="30" height="30" uuid="7b592227-4355-4c9c-896e-d13869feb437"/>
+								<text><![CDATA[Bloq]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 1_TD" height="30" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="30" height="20" uuid="69859a6c-f614-4293-99de-bf7699271ab5"/>
+								<textFieldExpression><![CDATA[$F{DetCort_Bloqueado}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="50">
+			<textField>
+				<reportElement x="601" y="9" width="80" height="20" uuid="78d7573e-abb1-45e1-b64f-750551e6e8d6"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="681" y="9" width="40" height="20" uuid="cdf2d879-f34e-4b4b-a8ed-d9633e093ba2"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>
