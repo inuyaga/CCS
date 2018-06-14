@@ -72,7 +72,8 @@ Corte_Rutas.DetCort_Factura,
 Corte_Rutas.DetCort_ClaveVendedor,
 Corte_Rutas.DetCort_Estatus,
 Corte_Rutas.DetCort_Ruta,
-Ruta_Comentarios.Comentarios_Comentario
+Ruta_Comentarios.Comentarios_Comentario,
+Ruta_Comentarios.Comentarios_FechaDate
 FROM
 Corte_Rutas
 INNER JOIN Ruta_Comentarios ON Ruta_Comentarios.Comentarios_Venta = Corte_Rutas.DetCort_Venta 
@@ -98,6 +99,9 @@ ORDER BY Comentarios_FechaDate DESC]]>
 			<fieldDescription><![CDATA[]]></fieldDescription>
 		</field>
 		<field name="Comentarios_Comentario" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="Comentarios_FechaDate" class="java.sql.Timestamp">
 			<fieldDescription><![CDATA[]]></fieldDescription>
 		</field>
 	</subDataset>
@@ -141,7 +145,7 @@ ORDER BY Comentarios_FechaDate DESC]]>
 							</staticText>
 						</jr:columnHeader>
 						<jr:columnFooter style="table 1_CH" height="30" rowSpan="1"/>
-						<jr:detailCell style="table 1_TD" height="20" rowSpan="1">
+						<jr:detailCell style="table 1_TD" height="30" rowSpan="1">
 							<textField>
 								<reportElement x="0" y="0" width="90" height="20" uuid="0ffe2fde-7869-4995-a213-d8e3a1e91b05"/>
 								<textFieldExpression><![CDATA[$F{DetCort_NumeroCliente}]]></textFieldExpression>
@@ -159,7 +163,7 @@ ORDER BY Comentarios_FechaDate DESC]]>
 							</staticText>
 						</jr:columnHeader>
 						<jr:columnFooter style="table 1_CH" height="30" rowSpan="1"/>
-						<jr:detailCell style="table 1_TD" height="20" rowSpan="1">
+						<jr:detailCell style="table 1_TD" height="30" rowSpan="1">
 							<textField>
 								<reportElement x="0" y="0" width="90" height="20" uuid="874da360-4e11-4085-b28d-f9e45e2e4828"/>
 								<textFieldExpression><![CDATA[$F{DetCort_Venta}]]></textFieldExpression>
@@ -177,7 +181,7 @@ ORDER BY Comentarios_FechaDate DESC]]>
 							</staticText>
 						</jr:columnHeader>
 						<jr:columnFooter style="table 1_CH" height="30" rowSpan="1"/>
-						<jr:detailCell style="table 1_TD" height="20" rowSpan="1">
+						<jr:detailCell style="table 1_TD" height="30" rowSpan="1">
 							<textField>
 								<reportElement x="0" y="0" width="90" height="20" uuid="0250e692-8ce5-4dd2-8202-39517f278f21"/>
 								<textFieldExpression><![CDATA[$F{DetCort_Factura}]]></textFieldExpression>
@@ -195,7 +199,7 @@ ORDER BY Comentarios_FechaDate DESC]]>
 							</staticText>
 						</jr:columnHeader>
 						<jr:columnFooter style="table 1_CH" height="30" rowSpan="1"/>
-						<jr:detailCell style="table 1_TD" height="20" rowSpan="1">
+						<jr:detailCell style="table 1_TD" height="30" rowSpan="1">
 							<textField>
 								<reportElement x="0" y="0" width="90" height="20" uuid="45cbd2df-2c53-44d0-aad0-53624bf6f071"/>
 								<textFieldExpression><![CDATA[$F{DetCort_ClaveVendedor}]]></textFieldExpression>
@@ -213,7 +217,7 @@ ORDER BY Comentarios_FechaDate DESC]]>
 							</staticText>
 						</jr:columnHeader>
 						<jr:columnFooter style="table 1_CH" height="30" rowSpan="1"/>
-						<jr:detailCell style="table 1_TD" height="20" rowSpan="1">
+						<jr:detailCell style="table 1_TD" height="30" rowSpan="1">
 							<textField>
 								<reportElement x="0" y="0" width="90" height="20" uuid="b76081db-a3e7-425c-b11d-c9f42372739e"/>
 								<textFieldExpression><![CDATA[$F{DetCort_Estatus}]]></textFieldExpression>
@@ -231,7 +235,7 @@ ORDER BY Comentarios_FechaDate DESC]]>
 							</staticText>
 						</jr:columnHeader>
 						<jr:columnFooter style="table 1_CH" height="30" rowSpan="1"/>
-						<jr:detailCell style="table 1_TD" height="20" rowSpan="1">
+						<jr:detailCell style="table 1_TD" height="30" rowSpan="1">
 							<textField>
 								<reportElement x="0" y="0" width="90" height="20" uuid="4dc5e5c0-3a5e-402c-8bc5-e21da8a320b3"/>
 								<textFieldExpression><![CDATA[$F{DetCort_Ruta}]]></textFieldExpression>
@@ -249,10 +253,25 @@ ORDER BY Comentarios_FechaDate DESC]]>
 							</staticText>
 						</jr:columnHeader>
 						<jr:columnFooter style="table 1_CH" height="30" rowSpan="1"/>
-						<jr:detailCell style="table 1_TD" height="20" rowSpan="1">
+						<jr:detailCell style="table 1_TD" height="30" rowSpan="1">
 							<textField>
 								<reportElement x="0" y="0" width="211" height="20" uuid="fe2dc661-6922-499d-90fe-456971f53c2b"/>
 								<textFieldExpression><![CDATA[$F{Comentarios_Comentario}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="7b8bc7cf-6bc4-44ab-bce8-05938fb93143">
+						<jr:columnHeader style="table 1_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="664d1755-7a65-4e73-8991-de166fd6da74"/>
+								<text><![CDATA[Fecha Comentario]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="table 1_CH" height="30" rowSpan="1"/>
+						<jr:detailCell height="30" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="30" uuid="1ed8966d-6c46-49be-9943-f27a44fd90b2"/>
+								<textFieldExpression><![CDATA[$F{Comentarios_FechaDate}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>

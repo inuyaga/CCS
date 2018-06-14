@@ -74,7 +74,7 @@ Solicitudes.Solicitud_FechaAdicion,
 Solicitudes.Solicitud_Clave_Vendedor
 FROM
 Solicitudes
-WHERE Solicitud_Tipo = 0 AND Solicitud_Status = 0  ]]>
+WHERE Solicitud_Tipo = 0 AND Solicitud_Status = 0]]>
 		</queryString>
 		<field name="Solicitud_Venta" class="java.lang.Integer">
 			<fieldDescription><![CDATA[]]></fieldDescription>
@@ -135,7 +135,7 @@ WHERE Solicitud_Tipo = 0 AND Solicitud_Status = 0  ]]>
 							</staticText>
 						</jr:columnHeader>
 						<jr:columnFooter style="table 1_CH" height="30" rowSpan="1"/>
-						<jr:detailCell style="table 1_TD" height="20" rowSpan="1">
+						<jr:detailCell style="table 1_TD" height="30" rowSpan="1">
 							<textField>
 								<reportElement x="0" y="0" width="90" height="20" uuid="1ee9d564-248f-469a-8a15-641fc4db7769"/>
 								<textFieldExpression><![CDATA[$F{Solicitud_Venta}]]></textFieldExpression>
@@ -153,7 +153,7 @@ WHERE Solicitud_Tipo = 0 AND Solicitud_Status = 0  ]]>
 							</staticText>
 						</jr:columnHeader>
 						<jr:columnFooter style="table 1_CH" height="30" rowSpan="1"/>
-						<jr:detailCell style="table 1_TD" height="20" rowSpan="1">
+						<jr:detailCell style="table 1_TD" height="30" rowSpan="1">
 							<textField>
 								<reportElement x="0" y="0" width="90" height="20" uuid="35b3f5ab-9282-4ac2-a933-11c3350eab6a"/>
 								<textFieldExpression><![CDATA[$F{Solicitud_Ruta}]]></textFieldExpression>
@@ -171,7 +171,7 @@ WHERE Solicitud_Tipo = 0 AND Solicitud_Status = 0  ]]>
 							</staticText>
 						</jr:columnHeader>
 						<jr:columnFooter style="table 1_CH" height="30" rowSpan="1"/>
-						<jr:detailCell style="table 1_TD" height="20" rowSpan="1">
+						<jr:detailCell style="table 1_TD" height="30" rowSpan="1">
 							<textField>
 								<reportElement x="0" y="0" width="90" height="20" uuid="13872ae4-7df0-46f9-b840-75f96bfbb64c"/>
 								<textFieldExpression><![CDATA[$F{Solicitud_Tipo}.intValue() == 0 ? "Eliminar" : "Agregar"]]></textFieldExpression>
@@ -189,7 +189,7 @@ WHERE Solicitud_Tipo = 0 AND Solicitud_Status = 0  ]]>
 							</staticText>
 						</jr:columnHeader>
 						<jr:columnFooter style="table 1_CH" height="30" rowSpan="1"/>
-						<jr:detailCell style="table 1_TD" height="20" rowSpan="1">
+						<jr:detailCell style="table 1_TD" height="30" rowSpan="1">
 							<textField>
 								<reportElement x="0" y="0" width="90" height="20" uuid="4edd8f92-61cd-4c46-8872-171aebfa3fbb"/>
 								<textFieldExpression><![CDATA[$F{Solicitud_Clave_Vendedor}]]></textFieldExpression>
@@ -207,10 +207,25 @@ WHERE Solicitud_Tipo = 0 AND Solicitud_Status = 0  ]]>
 							</staticText>
 						</jr:columnHeader>
 						<jr:columnFooter style="table 1_CH" height="30" rowSpan="1"/>
-						<jr:detailCell style="table 1_TD" height="20" rowSpan="1">
+						<jr:detailCell style="table 1_TD" height="30" rowSpan="1">
 							<textField>
 								<reportElement x="0" y="0" width="211" height="20" uuid="8f14a908-8d5b-4388-a8ca-62729a4fea46"/>
 								<textFieldExpression><![CDATA[$F{Solicitud_Mensaje}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="29f9ad5a-e50b-4bc8-9708-d98392e11767">
+						<jr:columnHeader style="table 1_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="fbe72e45-e638-4935-8602-45854dd380ee"/>
+								<text><![CDATA[Fecha]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="table 1_CH" height="30" rowSpan="1"/>
+						<jr:detailCell height="30" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="30" uuid="4d304d03-6b00-4fb6-86bd-d9306ddbc319"/>
+								<textFieldExpression><![CDATA[$F{Solicitud_FechaAdicion}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
