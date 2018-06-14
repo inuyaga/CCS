@@ -124,10 +124,10 @@ WHERE Solicitud_Tipo=1 AND Solicitud_Status = 0]]>
 						</datasetParameter>
 						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
 					</datasetRun>
-					<jr:column width="166" uuid="2c8181a1-0693-471a-a8cb-17c9d66b0a44">
+					<jr:column width="45" uuid="2c8181a1-0693-471a-a8cb-17c9d66b0a44">
 						<jr:columnHeader style="table 1_CH" height="30" rowSpan="1">
 							<staticText>
-								<reportElement x="0" y="0" width="166" height="30" uuid="9fa7d6bd-4bdb-4871-89ad-8cff534b9345"/>
+								<reportElement x="0" y="0" width="45" height="30" uuid="9fa7d6bd-4bdb-4871-89ad-8cff534b9345"/>
 								<textElement>
 									<font size="10" isBold="true"/>
 								</textElement>
@@ -137,7 +137,7 @@ WHERE Solicitud_Tipo=1 AND Solicitud_Status = 0]]>
 						<jr:columnFooter style="table 1_CH" height="30" rowSpan="1"/>
 						<jr:detailCell style="table 1_TD" height="30" rowSpan="1">
 							<textField>
-								<reportElement x="0" y="0" width="166" height="20" uuid="35b3f5ab-9282-4ac2-a933-11c3350eab6a"/>
+								<reportElement x="0" y="0" width="45" height="20" uuid="35b3f5ab-9282-4ac2-a933-11c3350eab6a"/>
 								<textFieldExpression><![CDATA[$F{Solicitud_Ruta}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
@@ -190,15 +190,13 @@ WHERE Solicitud_Tipo=1 AND Solicitud_Status = 0]]>
 						</jr:columnHeader>
 						<jr:columnFooter style="table 1_CH" height="30" rowSpan="1"/>
 						<jr:detailCell style="table 1_TD" height="30" rowSpan="1">
-							<textField>
-								<reportElement x="0" y="0" width="335" height="20" uuid="8f14a908-8d5b-4388-a8ca-62729a4fea46"/>
+							<textField isStretchWithOverflow="true">
+								<reportElement x="0" y="0" width="335" height="30" uuid="a8640eef-ebf8-4179-82d2-87e5c2da71be"/>
 								<textFieldExpression><![CDATA[$F{Solicitud_Mensaje}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
 					<jr:column width="90" uuid="37e3c3fa-45c2-496f-bbac-6f27bd37a06f">
-						<jr:tableHeader height="30" rowSpan="1"/>
-						<jr:tableFooter height="30" rowSpan="1"/>
 						<jr:columnHeader style="table 1_CH" height="30" rowSpan="1">
 							<staticText>
 								<reportElement x="0" y="0" width="90" height="30" uuid="6a7ad9e1-119e-4e70-b426-712f0ec21ad7"/>

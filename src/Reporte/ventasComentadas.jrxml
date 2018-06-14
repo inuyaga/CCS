@@ -254,7 +254,7 @@ ORDER BY Comentarios_FechaDate DESC]]>
 						</jr:columnHeader>
 						<jr:columnFooter style="table 1_CH" height="30" rowSpan="1"/>
 						<jr:detailCell style="table 1_TD" height="30" rowSpan="1">
-							<textField>
+							<textField isStretchWithOverflow="true">
 								<reportElement x="0" y="0" width="211" height="20" uuid="fe2dc661-6922-499d-90fe-456971f53c2b"/>
 								<textFieldExpression><![CDATA[$F{Comentarios_Comentario}]]></textFieldExpression>
 							</textField>

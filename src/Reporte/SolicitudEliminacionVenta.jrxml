@@ -208,8 +208,8 @@ WHERE Solicitud_Tipo = 0 AND Solicitud_Status = 0]]>
 						</jr:columnHeader>
 						<jr:columnFooter style="table 1_CH" height="30" rowSpan="1"/>
 						<jr:detailCell style="table 1_TD" height="30" rowSpan="1">
-							<textField>
-								<reportElement x="0" y="0" width="211" height="20" uuid="8f14a908-8d5b-4388-a8ca-62729a4fea46"/>
+							<textField isStretchWithOverflow="true">
+								<reportElement x="0" y="0" width="211" height="30" uuid="44957740-0c88-42d3-9a0e-8cb546ae1b3e"/>
 								<textFieldExpression><![CDATA[$F{Solicitud_Mensaje}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
