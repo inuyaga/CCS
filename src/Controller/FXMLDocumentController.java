@@ -160,7 +160,7 @@ public class FXMLDocumentController implements Initializable {
         String sqlSolicitaAgregar = "SELECT COUNT(*) AS total FROM Solicitudes WHERE Solicitud_Tipo=1 AND Solicitud_Status=0";
         String sqlSolicitaEliminar = "SELECT COUNT(*) AS total FROM Solicitudes WHERE Solicitud_Tipo=0 AND Solicitud_Status=0";
         String comentarios = "SELECT COUNT(*) AS total FROM Corte_Rutas INNER JOIN Ruta_Comentarios ON Ruta_Comentarios.Comentarios_Venta = Corte_Rutas.DetCort_Venta";
-        Modelo.conexion conexbd = new Modelo.conexion();
+        conexion conexbd = new conexion();
         conexbd.crearConexion();
         cnx = conexbd.getConexion();
         
