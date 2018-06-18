@@ -764,7 +764,7 @@ public class FXMLDocumentController implements Initializable {
     private void AccionReporteCompleto(ActionEvent event) {
         try {
             Connection cnx = null;
-            Modelo.conexion conexbd = new Modelo.conexion();
+            conexion conexbd = new conexion();
             conexbd.crearConexion();
             cnx = conexbd.getConexion();
             HashMap<String, Object> ParametrosJasperReport = new HashMap<>();
@@ -797,7 +797,7 @@ public class FXMLDocumentController implements Initializable {
 
         try {
             
-            Modelo.conexion conexbd = new Modelo.conexion();
+            conexion conexbd = new conexion();
             conexbd.crearConexion();
             cnx = conexbd.getConexion();
 
@@ -1130,7 +1130,7 @@ public class FXMLDocumentController implements Initializable {
     private void AccionEliminaVenta(ActionEvent event) {
          try {
             Connection cnx = null;
-            Modelo.conexion conexbd = new Modelo.conexion();
+            conexion conexbd = new conexion();
             conexbd.crearConexion();
             cnx = conexbd.getConexion();
             HashMap<String, Object> ParametrosJasperReport = new HashMap<>();
@@ -1182,7 +1182,7 @@ public class FXMLDocumentController implements Initializable {
     private void AccionAgregarVenta(ActionEvent event) {
          try {
             Connection cnx = null;
-            Modelo.conexion conexbd = new Modelo.conexion();
+            conexion conexbd = new conexion();
             conexbd.crearConexion();
             cnx = conexbd.getConexion();
             HashMap<String, Object> ParametrosJasperReport = new HashMap<>();
@@ -1231,7 +1231,7 @@ public class FXMLDocumentController implements Initializable {
     private void MarcarComoLeidoMensajes(int tipo){
         Connection cnx = null;
         PreparedStatement ps=null;
-        Modelo.conexion conexbd = new Modelo.conexion();
+        conexion conexbd = new conexion();
         conexbd.crearConexion();
         cnx = conexbd.getConexion();
         String sql="UPDATE Solicitudes SET Solicitud_Status = 1 WHERE Solicitud_Tipo=?";
