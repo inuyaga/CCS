@@ -1241,7 +1241,7 @@ public class FXMLDocumentController implements Initializable {
             ps.executeUpdate();
             
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println(e);
         } finally {
             try {
                 if (cnx != null) {
@@ -1251,8 +1251,15 @@ public class FXMLDocumentController implements Initializable {
                     ps.close();
                 }
             } catch (SQLException e) {
+                System.out.println(e);
             }
         }
+        
+    }
+
+    @FXML
+    private void AccionReportePorRuta(ActionEvent event) 
+    {
         
     }
 }
