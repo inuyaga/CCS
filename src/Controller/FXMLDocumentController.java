@@ -86,10 +86,6 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private TableColumn<?, ?> COLFECHAVENTA;
     @FXML
-    private TableColumn<?, ?> COLFAC;
-    @FXML
-    private TableColumn<?, ?> COLFECHAFAC;
-    @FXML
     private TableColumn<?, ?> COLTOTAL;
     @FXML
     private TableColumn<?, ?> COLVENDEDOR;
@@ -97,8 +93,6 @@ public class FXMLDocumentController implements Initializable {
     private TableColumn<?, ?> COLFOLIODESBLOQ;
     @FXML
     private TableColumn<?, ?> COLHORAIMPRESION;
-    @FXML
-    private TableColumn<?, ?> COLPARTIDAS;
     @FXML
     private TableColumn<?, ?> COLESTATUS;
     @FXML
@@ -249,7 +243,7 @@ public class FXMLDocumentController implements Initializable {
                 while (iterator.hasNext()) {
                     Row nextRow = iterator.next();
                     Iterator<org.apache.poi.ss.usermodel.Cell> cellIterator = nextRow.cellIterator();
-                    TablaDetallesExcel DETALLES = new TablaDetallesExcel("","", "", "", "", "", "", "", "", "", "", "", "", "", "", "");
+                    TablaDetallesExcel DETALLES = new TablaDetallesExcel("","", "", "", "", "", "", "", "", "", "", "", "");
 
                     while (cellIterator.hasNext()) {
                         org.apache.poi.ss.usermodel.Cell cell = cellIterator.next();
@@ -270,60 +264,81 @@ public class FXMLDocumentController implements Initializable {
                                 DETALLES.setFECHAVENTA(getCellValue(cell).toString());
                                 break;
                             case 4:
-                                DETALLES.setFACTURA(getCellValue(cell).toString());
+                                  DETALLES.setTOTAL(getCellValue(cell).toString());
+//                                DETALLES.setFACTURA(getCellValue(cell).toString());
                                 break;
                             case 5:
-                                DETALLES.setFECHAFACTURA(getCellValue(cell).toString());
+                                DETALLES.setVENDEDOR(getCellValue(cell).toString());
+//                                DETALLES.setFECHAFACTURA(getCellValue(cell).toString());
                                 break;
                             case 6:
-                                DETALLES.setTOTAL(getCellValue(cell).toString());
+                                DETALLES.setFOLIODESBLOQ(getCellValue(cell).toString());
+//                                DETALLES.setTOTAL(getCellValue(cell).toString());
                                 break;
                             case 7:
-                                DETALLES.setVENDEDOR(getCellValue(cell).toString());
-                                break;
-                            case 8:
-                                DETALLES.setFOLIODESBLOQ(getCellValue(cell).toString());
-                                break;
-                            case 9:
                                 String x = trim(getCellValue(cell).toString());
+                                
                                 if (x.isEmpty()) {
                                     DETALLES.setHRAIMPRESION("1970/01/01 00:00:00");
                                 } else {
-                                    DETALLES.setHRAIMPRESION(getCellValue(cell).toString());
+                                    String [] ok=x.split("/");
+                                    if(ok.length == 3){
+                                        DETALLES.setHRAIMPRESION(ok[2]+"/"+ok[1]+"/"+ok[0]);
+                                    }
+                                    else{
+                                        DETALLES.setHRAIMPRESION("1971/01/01 00:00:00");
+                                    }
                                 }
+//                                DETALLES.setVENDEDOR(getCellValue(cell).toString());
+                                break;
+                            case 8:
+                                DETALLES.setESTATUS(getCellValue(cell).toString());
+//                                DETALLES.setFOLIODESBLOQ(getCellValue(cell).toString());
+                                break;
+                            case 9:
+                                DETALLES.setESTADOPED(getCellValue(cell).toString());
+//                                String x = trim(getCellValue(cell).toString());
+//                                if (x.isEmpty()) {
+//                                    DETALLES.setHRAIMPRESION("1970/01/01 00:00:00");
+//                                } else {
+//                                    DETALLES.setHRAIMPRESION(getCellValue(cell).toString());
+//                                }
                                 break;
                             case 10:
-
-                                String[] parts = DETALLES.getFECHAFACTURA().split(" ");
-                                String[] parts2 = getCellValue(cell).toString().split(" ");
-
-                                if (parts.length == 2 && parts2.length == 2) {
-                                    String FechaFinal = parts[0] + " " + parts2[1];
-                                    DETALLES.setFECHAFACTURA(FechaFinal);
-
-                                } else {
-                                    DETALLES.setFECHAFACTURA(trim(DETALLES.getFECHAFACTURA().replace("/", " ")));
-                                    DETALLES.setFECHAFACTURA("1970-01-01 00:00:00");
-                                }
+                                DETALLES.setCIUDAD(getCellValue(cell).toString());
+//                                String[] parts = DETALLES.getFECHAFACTURA().split(" ");
+//                                String[] parts2 = getCellValue(cell).toString().split(" ");
+//
+//                                if (parts.length == 2 && parts2.length == 2) {
+//                                    String FechaFinal = parts[0] + " " + parts2[1];
+//                                    DETALLES.setFECHAFACTURA(FechaFinal);
+//
+//                                } else {
+//                                    DETALLES.setFECHAFACTURA(trim(DETALLES.getFECHAFACTURA().replace("/", " ")));
+//                                    DETALLES.setFECHAFACTURA("1970-01-01 00:00:00");
+//                                }
                                 break;
                             case 11:
-                                DETALLES.setPARTIDAS(getCellValue(cell).toString());
+                                DETALLES.setRUTA(getCellValue(cell).toString());
+//                                DETALLES.setPARTIDAS(getCellValue(cell).toString());
                                 break;
                             case 12:
-                                DETALLES.setESTATUS(getCellValue(cell).toString());
-                                break;
-                            case 13:
-                                DETALLES.setESTADOPED(getCellValue(cell).toString());
-                                break;
-                            case 14:
-                                DETALLES.setCIUDAD(getCellValue(cell).toString());
-                                break;
-                            case 16:
-                                DETALLES.setRUTA(getCellValue(cell).toString());
-                                break;
-                            case 17:
                                 DETALLES.setBLOQUEADO(getCellValue(cell).toString());
+//                                DETALLES.setESTATUS(getCellValue(cell).toString());
                                 break;
+//                            case 13:
+//                                DETALLES.setBLOQUEADO(getCellValue(cell).toString());
+//                                DETALLES.setESTADOPED(getCellValue(cell).toString());
+//                                break;
+//                            case 14:
+//                                DETALLES.setCIUDAD(getCellValue(cell).toString());
+//                                break;
+//                            case 16:
+//                                DETALLES.setRUTA(getCellValue(cell).toString());
+//                                break;
+//                            case 17:
+//                                DETALLES.setBLOQUEADO(getCellValue(cell).toString());
+//                                break;
                         }
 
 //                          System.out.print(getCellValue(cell));
@@ -370,7 +385,6 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void AccionSeleccionaArchivo(ActionEvent event) throws FileNotFoundException {
-
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Seleccionar el certificado");
 
@@ -394,15 +408,15 @@ public class FXMLDocumentController implements Initializable {
                 COLNOMBRECLIENTE.setCellValueFactory(new PropertyValueFactory<>("NOMBRECLIENTE"));
                 COLVENTA.setCellValueFactory(new PropertyValueFactory<>("VENTA"));
                 COLFECHAVENTA.setCellValueFactory(new PropertyValueFactory<>("FECHAVENTA"));
-                COLFAC.setCellValueFactory(new PropertyValueFactory<>("FACTURA"));
+                //COLFAC.setCellValueFactory(new PropertyValueFactory<>("FACTURA"));
 
-                COLFECHAFAC.setCellValueFactory(new PropertyValueFactory<>("FECHAFACTURA"));
+                //COLFECHAFAC.setCellValueFactory(new PropertyValueFactory<>("FECHAFACTURA"));
                 COLTOTAL.setCellValueFactory(new PropertyValueFactory<>("TOTAL"));
                 COLVENDEDOR.setCellValueFactory(new PropertyValueFactory<>("VENDEDOR"));
                 COLFOLIODESBLOQ.setCellValueFactory(new PropertyValueFactory<>("FOLIODESBLOQ"));
                 COLHORAIMPRESION.setCellValueFactory(new PropertyValueFactory<>("HRAIMPRESION"));
 
-                COLPARTIDAS.setCellValueFactory(new PropertyValueFactory<>("PARTIDAS"));
+                //COLPARTIDAS.setCellValueFactory(new PropertyValueFactory<>("PARTIDAS"));
                 COLESTATUS.setCellValueFactory(new PropertyValueFactory<>("ESTATUS"));
                 COLESTADOPED.setCellValueFactory(new PropertyValueFactory<>("ESTADOPED"));
                 COLCIUDAD.setCellValueFactory(new PropertyValueFactory<>("CIUDAD"));
@@ -451,6 +465,19 @@ public class FXMLDocumentController implements Initializable {
     private void AccionEliminarFila(ActionEvent event) {
         Lectura.remove(0);
     }
+    
+    private boolean DecisionNumeroString(String x)
+    {
+        boolean respuesta;
+        int numero;
+        try {
+            numero=Integer.parseInt(x);
+            respuesta=true;
+        } catch (NumberFormatException e) {
+            respuesta=false;
+        }
+        return respuesta;
+    }
 
     public void insertar() {
         Task<Integer> task = new Task<Integer>() {
@@ -476,13 +503,10 @@ public class FXMLDocumentController implements Initializable {
                             + "DetCort_NombreCliente,"
                             + "DetCort_Venta,"
                             + "DetCort_FechaVenta,"
-                            + "DetCort_Factura,"
-                            + "DetCort_FechaHoraFactura,"
                             + "DetCort_Total,"
                             + "DetCort_ClaveVendedor,"
                             + "DetCort_FolioDesbloqueo,"
                             + "DetCort_FechaHoraImpresion,"
-                            + "DetCort_Partidas,"
                             + "DetCort_Estatus,"
                             + "DetCort_EstadoPedido,"
                             + "DetCort_Ciudad,"
@@ -490,19 +514,18 @@ public class FXMLDocumentController implements Initializable {
                             + "DetCort_Bloqueado,"
                             + "Det_TipoCorte,"
                             + "Det_Semana) "
-                            + "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                        + "SELECT ?,?,?,?,?,?,?,IF(trim(?) = '1970/01/01 00:00:00',null,?),?,?,?,?,?,?,? "
+                + "FROM dual "
+                + "WHERE NOT EXISTS (SELECT DetCort_Venta FROM Corte_Rutas_Final WHERE DetCort_Venta=? LIMIT 1)";
                 String sql2 = "INSERT INTO Corte_Rutas_Final"
                             + "(DetCort_NumeroCliente,"
                             + "DetCort_NombreCliente,"
                             + "DetCort_Venta,"
                             + "DetCort_FechaVenta,"
-                            + "DetCort_Factura,"
-                            + "DetCort_FechaHoraFactura,"
                             + "DetCort_Total,"
                             + "DetCort_ClaveVendedor,"
                             + "DetCort_FolioDesbloqueo,"
                             + "DetCort_FechaHoraImpresion,"
-                            + "DetCort_Partidas,"
                             + "DetCort_Estatus,"
                             + "DetCort_EstadoPedido,"
                             + "DetCort_Ciudad,"
@@ -510,7 +533,8 @@ public class FXMLDocumentController implements Initializable {
                             + "DetCort_Bloqueado,"
                             + "Det_TipoCorte,"
                             + "Det_Semana) "
-                            + "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                            + "VALUES(?,"
+                        + "?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
                 try {
                     cnx.setAutoCommit(false);
                     ps = cnx.prepareStatement(sql);
@@ -522,7 +546,6 @@ public class FXMLDocumentController implements Initializable {
                     Date F_actual = new Date();
                     Date F_BD;
                     String TipoCorte;
-
                     Calendar calendar = Calendar.getInstance();
                     calendar.setFirstDayOfWeek(Calendar.MONDAY);
                     calendar.setMinimalDaysInFirstWeek(4);
@@ -539,8 +562,23 @@ public class FXMLDocumentController implements Initializable {
                         F_BD = rs.getTimestamp("Rut_FechaCorte");
 
                         for (TablaDetallesExcel item : TABLAINFO.getItems()) {
-
-                            if (rs.getString("Rut_ruta").equals(item.getRUTA())) {
+                            String rutaTemporal ="";
+                            String tipoHradeimpresion;
+                            if( DecisionNumeroString(item.getRUTA())){
+                                rutaTemporal=""+Integer.parseInt(item.getRUTA());
+                            }else{
+                                rutaTemporal=item.getRUTA();
+                            }
+                            
+                            if(item.getHRAIMPRESION() == null || item.getHRAIMPRESION().equals(""))
+                            {
+                                tipoHradeimpresion="1970/01/01 00:00:00";
+//                                System.out.println("Vacio o no existe "+tipoHradeimpresion);
+                            }else{
+                                tipoHradeimpresion=item.getHRAIMPRESION();
+//                                System.out.println("info: "+i+" "+item.getHRAIMPRESION());
+                            }
+                            if (rs.getString("Rut_ruta").equals(rutaTemporal)) {
                                 updateProgress(i, max);
                                 updateMessage(i + " de " + max);
                                 i++;
@@ -550,20 +588,22 @@ public class FXMLDocumentController implements Initializable {
                                         ps.setString(2, item.getNOMBRECLIENTE());
                                         ps.setString(3, item.getVENTA());
                                         ps.setString(4, item.getFECHAVENTA());
-                                        ps.setString(5, item.getFACTURA());
-                                        ps.setString(6, item.getFECHAFACTURA());
-                                        ps.setString(7, item.getTOTAL());
-                                        ps.setString(8, item.getVENDEDOR());
-                                        ps.setString(9, item.getFOLIODESBLOQ());
-                                        ps.setString(10, item.getHRAIMPRESION());
-                                        ps.setString(11, item.getPARTIDAS());
-                                        ps.setString(12, item.getESTATUS());
-                                        ps.setString(13, item.getESTADOPED());
-                                        ps.setString(14, item.getCIUDAD());
-                                        ps.setString(15, item.getRUTA());
-                                        ps.setString(16, item.getBLOQUEADO());
-                                        ps.setString(17, TipoCorte);
-                                        ps.setString(18, rs.getString("semanaC"));
+//                                        ps.setString(5, item.getFACTURA());
+//                                        ps.setString(6, item.getFECHAFACTURA());
+                                        ps.setString(5, item.getTOTAL());
+                                        ps.setString(6, item.getVENDEDOR());
+                                        ps.setString(7, item.getFOLIODESBLOQ());
+                                        ps.setString(8, tipoHradeimpresion);
+                                        ps.setString(9, tipoHradeimpresion);
+//                                        ps.setString(11, item.getPARTIDAS());
+                                        ps.setString(10, item.getESTATUS());
+                                        ps.setString(11, item.getESTADOPED());
+                                        ps.setString(12, item.getCIUDAD());
+                                        ps.setString(13, item.getRUTA());
+                                        ps.setString(14, item.getBLOQUEADO());
+                                        ps.setString(15, TipoCorte);
+                                        ps.setString(16, rs.getString("semanaC"));
+                                        ps.setString(17, item.getVENTA());
                                         ps.addBatch();
                                 } else {
                                     TipoCorte = "Corte";
@@ -571,20 +611,20 @@ public class FXMLDocumentController implements Initializable {
                                         ps3.setString(2, item.getNOMBRECLIENTE());
                                         ps3.setString(3, item.getVENTA());
                                         ps3.setString(4, item.getFECHAVENTA());
-                                        ps3.setString(5, item.getFACTURA());
-                                        ps3.setString(6, item.getFECHAFACTURA());
-                                        ps3.setString(7, item.getTOTAL());
-                                        ps3.setString(8, item.getVENDEDOR());
-                                        ps3.setString(9, item.getFOLIODESBLOQ());
-                                        ps3.setString(10, item.getHRAIMPRESION());
-                                        ps3.setString(11, item.getPARTIDAS());
-                                        ps3.setString(12, item.getESTATUS());
-                                        ps3.setString(13, item.getESTADOPED());
-                                        ps3.setString(14, item.getCIUDAD());
-                                        ps3.setString(15, item.getRUTA());
-                                        ps3.setString(16, item.getBLOQUEADO());
-                                        ps3.setString(17, TipoCorte);
-                                        ps3.setString(18, rs.getString("semanaC"));
+//                                        ps3.setString(5, item.getFACTURA());
+//                                        ps3.setString(6, item.getFECHAFACTURA());
+                                        ps3.setString(5, item.getTOTAL());
+                                        ps3.setString(6, item.getVENDEDOR());
+                                        ps3.setString(7, item.getFOLIODESBLOQ());
+                                        ps3.setString(8, tipoHradeimpresion);
+//                                        ps3.setString(11, item.getPARTIDAS());
+                                        ps3.setString(9, item.getESTATUS());
+                                        ps3.setString(10, item.getESTADOPED());
+                                        ps3.setString(11, item.getCIUDAD());
+                                        ps3.setString(12, item.getRUTA());
+                                        ps3.setString(13, item.getBLOQUEADO());
+                                        ps3.setString(14, TipoCorte);
+                                        ps3.setString(15, rs.getString("semanaC"));
                                         ps3.addBatch();
                                 }
                                 TemAeliminar.add(item);
@@ -670,6 +710,7 @@ public class FXMLDocumentController implements Initializable {
                     Lectura.removeAll(TemAeliminar);
 
                 } catch (SQLException ex) {
+                    updateMessage("Error!!!!!!!!!!!!"+ex);
                     System.out.println(ex);
                     try {
                         if (cnx != null) {
@@ -677,7 +718,7 @@ public class FXMLDocumentController implements Initializable {
                         }
                         ex.printStackTrace();
 
-                        updateMessage(ex.getMessage());
+//                        updateMessage(ex.getMessage());
                         BTNCAMBIOS.setDisable(false);
                         BTNBUSQUEDA.setDisable(false);
                     } catch (SQLException e) {
@@ -701,6 +742,7 @@ public class FXMLDocumentController implements Initializable {
                             cnx.close();
                         }
                     } catch (SQLException e) {
+                        System.out.println(""+e);
                     }
 
                 }
@@ -934,20 +976,20 @@ public class FXMLDocumentController implements Initializable {
             ps.setString(2, x.getNOMBRECLIENTE());
             ps.setString(3, x.getVENTA());
             ps.setString(4, x.getFECHAVENTA());
-            ps.setString(5, x.getFACTURA());
-            ps.setString(6, x.getFECHAFACTURA());
-            ps.setString(7, x.getTOTAL());
-            ps.setString(8, x.getVENDEDOR());
-            ps.setString(9, x.getFOLIODESBLOQ());
-            ps.setString(10, x.getHRAIMPRESION());
-            ps.setString(11, x.getPARTIDAS());
-            ps.setString(12, x.getESTATUS());
-            ps.setString(13, x.getESTADOPED());
-            ps.setString(14, x.getCIUDAD());
-            ps.setString(15, x.getRUTA());
-            ps.setString(16, x.getBLOQUEADO());
-            ps.setString(17, TipoCorte);
-            ps.setString(18, TipoSemana);
+//            ps.setString(5, x.getFACTURA());
+//            ps.setString(6, x.getFECHAFACTURA());
+            ps.setString(5, x.getTOTAL());
+            ps.setString(6, x.getVENDEDOR());
+            ps.setString(7, x.getFOLIODESBLOQ());
+            ps.setString(8, x.getHRAIMPRESION());
+//            ps.setString(11, x.getPARTIDAS());
+            ps.setString(9, x.getESTATUS());
+            ps.setString(10, x.getESTADOPED());
+            ps.setString(11, x.getCIUDAD());
+            ps.setString(12, x.getRUTA());
+            ps.setString(13, x.getBLOQUEADO());
+            ps.setString(14, TipoCorte);
+            ps.setString(15, TipoSemana);
             ps.executeUpdate();
         } catch (SQLException e) {
             BTNCAMBIOS.setDisable(false);
@@ -995,8 +1037,9 @@ public class FXMLDocumentController implements Initializable {
                 + "DetCort_Ruta,"
                 + "DetCort_Bloqueado,"
                 + "Det_TipoCorte,"
-                + "Det_Semana) "
-                + "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                + "Det_Semana) SELECT ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,? "
+                + "FROM dual "
+                + "WHERE NOT EXISTS (SELECT DetCort_Venta FROM Corte_Rutas_Final WHERE DetCort_Venta=? LIMIT 1)";
         try {
 
             ps = cnx.prepareStatement(sql);
@@ -1004,20 +1047,21 @@ public class FXMLDocumentController implements Initializable {
             ps.setString(2, x.getNOMBRECLIENTE());
             ps.setString(3, x.getVENTA());
             ps.setString(4, x.getFECHAVENTA());
-            ps.setString(5, x.getFACTURA());
-            ps.setString(6, x.getFECHAFACTURA());
-            ps.setString(7, x.getTOTAL());
-            ps.setString(8, x.getVENDEDOR());
-            ps.setString(9, x.getFOLIODESBLOQ());
-            ps.setString(10, x.getHRAIMPRESION());
-            ps.setString(11, x.getPARTIDAS());
-            ps.setString(12, x.getESTATUS());
-            ps.setString(13, x.getESTADOPED());
-            ps.setString(14, x.getCIUDAD());
-            ps.setString(15, x.getRUTA());
-            ps.setString(16, x.getBLOQUEADO());
-            ps.setString(17, TipoCorte);
-            ps.setString(18, TipoSemana);
+//            ps.setString(5, x.getFACTURA());
+//            ps.setString(6, x.getFECHAFACTURA());
+            ps.setString(5, x.getTOTAL());
+            ps.setString(6, x.getVENDEDOR());
+            ps.setString(7, x.getFOLIODESBLOQ());
+            ps.setString(8, x.getHRAIMPRESION());
+//            ps.setString(11, x.getPARTIDAS());
+            ps.setString(9, x.getESTATUS());
+            ps.setString(10, x.getESTADOPED());
+            ps.setString(11, x.getCIUDAD());
+            ps.setString(12, x.getRUTA());
+            ps.setString(13, x.getBLOQUEADO());
+            ps.setString(14, TipoCorte);
+            ps.setString(15, TipoSemana);
+            ps.setString(16, x.getVENTA());
             ps.executeUpdate();
         } catch (SQLException e) {
             BTNCAMBIOS.setDisable(false);
@@ -1260,6 +1304,27 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void AccionReportePorRuta(ActionEvent event) 
     {
-        
+        try {
+            Connection cnx = null;
+            conexion conexbd = new conexion();
+            conexbd.crearConexion();
+            cnx = conexbd.getConexion();
+            HashMap<String, Object> ParametrosJasperReport = new HashMap<>();
+            ParametrosJasperReport.put("P_VENDEDOR", "");
+            ParametrosJasperReport.put("P_RUTA", "");
+            ParametrosJasperReport.put("P_SEMANA", "semana");
+            InputStream fis2 = null;
+            fis2 = this.getClass().getResourceAsStream("/Reporte/ReporteRutaVendedor.jasper");
+            JasperReport reporte = (JasperReport) JRLoader.loadObject(fis2);
+            JasperPrint print = JasperFillManager.fillReport(reporte, ParametrosJasperReport, cnx);
+            JasperFX jpFX = new JasperFX(print);
+            jpFX.show();
+        } catch (NumberFormatException | JRException e) {
+            Alert alert = new Alert(AlertType.INFORMATION);
+            alert.setTitle("Information Dialog");
+            alert.setHeaderText("Look, an Information Dialog");
+            alert.setContentText("I have a great message for you!" + e);
+            alert.showAndWait();
+        }
     }
 }
